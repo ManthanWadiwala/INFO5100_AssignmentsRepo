@@ -551,7 +551,7 @@ public class FilterJPanel extends javax.swing.JPanel {
 
                                 for(Fleet f : history.getHistory())
                                 {
-                                    if(f.getVIN().equals(txtVIN.getText()))
+                                    if(f.getVIN().equalsIgnoreCase(txtVIN.getText()))
                                     {
                                         if(!tempList.contains(f))
                                         {
@@ -571,7 +571,7 @@ public class FilterJPanel extends javax.swing.JPanel {
             model.setRowCount(0);
                                 for(Fleet f : history.getHistory())
                                 {
-                                    if(f.getModel().equals(txtModel.getText()))
+                                    if(f.getModel().equalsIgnoreCase(txtModel.getText()))
                                     {
                                         if(!tempList.contains(f))
                                         {
@@ -591,7 +591,7 @@ public class FilterJPanel extends javax.swing.JPanel {
             model.setRowCount(0);
                                 for(Fleet f : history.getHistory())
                                 {
-                                    if(f.getLocation().equals(txtCity.getText()))
+                                    if(f.getLocation().equalsIgnoreCase(txtCity.getText()))
                                     {
                                         if(!tempList.contains(f))
                                         {
@@ -611,7 +611,7 @@ public class FilterJPanel extends javax.swing.JPanel {
             model.setRowCount(0);
                                 for(Fleet f : history.getHistory())
                                 {
-                                    if(f.getMake().equals(txtMake.getText()))
+                                    if(f.getMake().equalsIgnoreCase(txtMake.getText()))
                                     {
                                         if(!tempList.contains(f))
                                         {
@@ -684,7 +684,7 @@ public class FilterJPanel extends javax.swing.JPanel {
                         model.setRowCount(0);
                         for(Fleet f : history.getHistory())
                                 {
-                                    if("Available".equals(f.getAvailability()))
+                                    if("Available".equalsIgnoreCase(f.getAvailability()))
                                     {
                                         if(!tempList.contains(f))
                                         {

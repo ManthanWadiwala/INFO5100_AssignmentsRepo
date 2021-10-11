@@ -331,7 +331,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             else
             {
                     String model = txtModel.getText();
-                    if(!model.matches("^[a-zA-Z0-9\\s]*$"))
+                    if(!model.matches("^[a-zA-Z0-9-\\s]*$"))
                     {
                         errorMessage = errorMessage.concat("Model should only contain letters and numbers. \n");
                     }
