@@ -10,4 +10,10 @@ Creation of a user profile and view the created user profile
 
 Creation, update, and search for a fleet of Uber cabs. 
 
+## Assignment 3
+
+Create a performance measurement solution to enable universities to measure the quality of the education they deliver to their students. 
+Define your own ranking system for students to decide where they want to go for their studies.
+
+
 
