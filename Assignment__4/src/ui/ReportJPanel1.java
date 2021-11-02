@@ -81,12 +81,21 @@ public class ReportJPanel1 extends javax.swing.JPanel {
                 {"0 - 20", "0"},
                 {"21 - 40", "0"},
                 {"41 - 80", "0"},
-                {"80 +", "0"}
+                {"80 +", "0"},
+                {"Total", null}
             },
             new String [] {
                 "Age Range(Years)", "No. Of Patients"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblComm1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblComm1MouseClicked(evt);
@@ -185,7 +194,8 @@ public class ReportJPanel1 extends javax.swing.JPanel {
                 {"0 - 20", ""},
                 {"21 - 40", ""},
                 {"41 - 80", ""},
-                {"80 +", ""}
+                {"80 +", ""},
+                {"Total", null}
             },
             new String [] {
                 "Age Range(Years)", "No. Of Patients"
@@ -258,8 +268,8 @@ public class ReportJPanel1 extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -268,10 +278,10 @@ public class ReportJPanel1 extends javax.swing.JPanel {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(141, 141, 141))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(135, 135, 135))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(77, 77, 77)
@@ -399,18 +409,22 @@ public class ReportJPanel1 extends javax.swing.JPanel {
   
            DefaultTableModel model = (DefaultTableModel) tblComm1.getModel();
             model.setRowCount(0);
+            String total=Integer.toString(h1.size()+h2.size()+h3.size()+h4.size());
         //int i=0;
         
         String[] row1 = {"0 - 20",ag1};
         String[] row2 = {"21 - 40",ag2};
         String[] row3 = {"41 - 80",ag3};
         String[] row4 = {"80 +",ag4};
+        String[] row5 = {"Total",total};
+        System.out.println("Total:"+total);
     
 
             model.addRow(row1);
             model.addRow(row2);
             model.addRow(row3);
             model.addRow(row4);
+            model.addRow(row5);
         
   
                        
@@ -460,17 +474,20 @@ public class ReportJPanel1 extends javax.swing.JPanel {
                   DefaultTableModel model = (DefaultTableModel) tblComm2.getModel();
             model.setRowCount(0);
         //int i=0;
+            String total=Integer.toString(h11.size()+h12.size()+h13.size()+h14.size());
         
         String[] row1 = {"0 - 20",ag11};
         String[] row2 = {"21 - 40",ag12};
         String[] row3 = {"41 - 80",ag13};
         String[] row4 = {"80 +",ag14};
-    
+        String[] row5 = {"Total",total};
+        System.out.println("Total:"+total);
 
             model.addRow(row1);
             model.addRow(row2);
             model.addRow(row3);
             model.addRow(row4);
+            model.addRow(row5);
         
               
         }
