@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  *
  * @author manthanwadiwala
  */
-public class ManageCustomers extends javax.swing.JPanel {
+public class ManageRestaurants extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem system;
     UserAccount user;
@@ -21,7 +21,7 @@ public class ManageCustomers extends javax.swing.JPanel {
     /**
      * Creates new form ManageCustomers1
      */
-    public ManageCustomers(JPanel userProcessContainer, EcoSystem system) {
+    public ManageRestaurants(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
@@ -114,7 +114,7 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Customers");
+        jLabel1.setText("Restaurants");
 
         jLabel3.setText("Name");
 
@@ -131,7 +131,7 @@ public class ManageCustomers extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

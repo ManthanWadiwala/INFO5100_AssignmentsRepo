@@ -128,6 +128,7 @@ public class MainJFrame extends javax.swing.JFrame {
         container.add(ua.getRole().createWorkArea(container, ua, system));
         layout.next(container);
         loginJButton.setEnabled(false);
+        logoutJButton.setEnabled(true);
        
     }//GEN-LAST:event_loginJButtonActionPerformed
 
