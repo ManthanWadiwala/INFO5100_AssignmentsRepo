@@ -5,8 +5,12 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Role.CustomerRole;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 
 /**
@@ -207,8 +211,12 @@ public class ManageCustomers extends javax.swing.JPanel {
         String name = txtName.getText();
         String username = txtUsername.getText();
         String password = txtPassword.getText();
-       // UserAccount ua = system.getUserAccountDirectory().createUserAccount(username, password, null, new CustomerRole());
-        //Customer customer = system.ge
+        UserAccount ua = system.getUserAccountDirectory().createUserAccount(username, password, null, new CustomerRole());
+        //Customer cust= system.getCustomerDirectory().createCustomer(uname);
+        //populateNetworkTable();
+        //nameJTextField.setText("");
+        //uNameTextField.setText("");
+        //PasswordField.setText("");
 
     }//GEN-LAST:event_addBtnActionPerformed
 
@@ -217,7 +225,13 @@ public class ManageCustomers extends javax.swing.JPanel {
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+        sysAdminwjp.populateTree();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
