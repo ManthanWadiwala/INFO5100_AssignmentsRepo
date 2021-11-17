@@ -9,6 +9,10 @@ package Business.Restaurant;
  *
  * @author harold
  */
-public class Restaurant {
+public class Restaurant extends Menu {
+    private String restaurantName;
+    private String adminUsername;
+    
+    
     
 }
