@@ -11,7 +11,9 @@ import Business.Role.CustomerRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -204,6 +206,20 @@ public class ManageCustomers extends javax.swing.JPanel {
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
         // TODO add your handling code here:
+        int selectRow = networkJTable.getSelectedRow();
+
+        if(selectRow>=0){
+            String username= (String) networkJTable.getValueAt(selectRow, 1);
+            String password= (String) networkJTable.getValueAt(selectRow, 2);
+            user=system.getUserAccountDirectory().authenticateUser(username, password);
+
+            txtName.setText(user.getName()+"");
+            txtUsername.setText(user.getUsername()+"");
+            txtPassword.setText(user.getPassword()+"");
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Please select a row");
+        }
     }//GEN-LAST:event_updateBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
@@ -212,8 +228,8 @@ public class ManageCustomers extends javax.swing.JPanel {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
         UserAccount ua = system.getUserAccountDirectory().createUserAccount(username, password, null, new CustomerRole());
-        //Customer cust= system.getCustomerDirectory().createCustomer(uname);
-        //populateNetworkTable();
+        Customer cust= system.getCustomerDirectory().addNewCustomer();
+        //populateTable();
         //nameJTextField.setText("");
         //uNameTextField.setText("");
         //PasswordField.setText("");
@@ -237,7 +253,27 @@ public class ManageCustomers extends javax.swing.JPanel {
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
-
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) networkJTable.getModel();
+        
+        model.setRowCount(0);
+        
+       // for()
+        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+           
+            if ("Business.Role.CustomerRole".equals(user.getRole().getClass().getName())) {
+                Object[] row = new Object[3];
+               
+                row[0] = user.getName();
+                row[1] = user.getUsername();
+                row[2] = user.getPassword();
+                
+                model.addRow(row);
+            }
+            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;

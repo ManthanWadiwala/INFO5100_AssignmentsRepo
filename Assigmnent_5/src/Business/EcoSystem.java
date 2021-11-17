@@ -20,6 +20,38 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
+
+    public static EcoSystem getBusiness() {
+        return business;
+    }
+
+    public static void setBusiness(EcoSystem business) {
+        EcoSystem.business = business;
+    }
+
+    public RestaurantDirectory getRestaurantDirectory() {
+        return restaurantDirectory;
+    }
+
+    public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
+        this.restaurantDirectory = restaurantDirectory;
+    }
+
+    public CustomerDirectory getCustomerDirectory() {
+        return customerDirectory;
+    }
+
+    public void setCustomerDirectory(CustomerDirectory customerDirectory) {
+        this.customerDirectory = customerDirectory;
+    }
+
+    public DeliveryManDirectory getDeliveryManDirectory() {
+        return deliveryManDirectory;
+    }
+
+    public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
+    }
     private RestaurantDirectory restaurantDirectory;
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;

@@ -14,7 +14,7 @@ import Business.Order.Order;
 
 
 
-public class Customer extends Order {
+public class Customer {
     
     private String name;
     private String username;
