@@ -14,15 +14,24 @@ import java.util.ArrayList;
  */
 public class Order {
     
-    private static int count = 0; 
+    //private static int count = 0; 
     
-    private int orderId;
+    private String orderId;
     private String status;
     private String restaurantName;
     private String customerName;
     private String deliveryMan;
     private ArrayList<Menu> Order;
     private String cost;
+    private String deliveryAddress;
+
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
 
     public String getRestaurantName() {
         return restaurantName;
@@ -65,11 +74,11 @@ public class Order {
     }
 
 
-    public int getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
@@ -81,10 +90,14 @@ public class Order {
         this.status = status;
     }
       
-    public Order() {
-        count++;
-        orderId = count;
-    }
+    //public Order() {
+       // count++;
+       // orderId = count;
+    //}
     
+    @Override
+    public String toString() {
+        return orderId;
+    }
     
 }
