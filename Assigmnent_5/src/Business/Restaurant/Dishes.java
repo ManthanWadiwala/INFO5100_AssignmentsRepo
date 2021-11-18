@@ -9,7 +9,7 @@ package Business.Restaurant;
  *
  * @author manthanwadiwala
  */
-public class Menu {
+public class Dishes {
     
     private String name;
     private String description;
@@ -43,7 +43,7 @@ public class Menu {
         return name;
     }
 
-    public Menu(String name,String description,long price) {
+    public Dishes(String name,String description,long price) {
         this.name=name;
         this.price=price;
         this.description=description;

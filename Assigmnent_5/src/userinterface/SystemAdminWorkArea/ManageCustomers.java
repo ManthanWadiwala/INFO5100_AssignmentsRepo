@@ -20,9 +20,10 @@ import javax.swing.table.DefaultTableModel;
  * @author manthanwadiwala
  */
 public class ManageCustomers extends javax.swing.JPanel {
-    JPanel userProcessContainer;
-    EcoSystem system;
+    private JPanel userProcessContainer;
+    private EcoSystem system;
     UserAccount user;
+    Customer customer;
 
     /**
      * Creates new form ManageCustomers1
@@ -30,7 +31,8 @@ public class ManageCustomers extends javax.swing.JPanel {
     public ManageCustomers(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.system = system;
+        this.system = system;    
+        populateTable();
     }
 
     /**
@@ -227,12 +229,12 @@ public class ManageCustomers extends javax.swing.JPanel {
         String name = txtName.getText();
         String username = txtUsername.getText();
         String password = txtPassword.getText();
-        UserAccount ua = system.getUserAccountDirectory().createUserAccount(username, password, null, new CustomerRole());
-        Customer cust= system.getCustomerDirectory().addNewCustomer();
-        //populateTable();
-        //nameJTextField.setText("");
-        //uNameTextField.setText("");
-        //PasswordField.setText("");
+        UserAccount ua = system.getUserAccountDirectory().createUserAccount(name,username, password, null, new CustomerRole());
+        //Customer cust= system.getCustomerDirectory().addNewCustomer(username);
+        populateTable();
+        txtName.setText("");
+        txtUsername.setText("");
+        txtPassword.setText("");
 
     }//GEN-LAST:event_addBtnActionPerformed
 

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class CustomerDirectory {
     
     private ArrayList<Customer> customerList;
+    private Customer customer;
 
     public ArrayList<Customer> getCustomerList() {
         return customerList;
@@ -28,11 +29,11 @@ public class CustomerDirectory {
                 this.customerList = new ArrayList<Customer>();
             }
 
-    public Customer addNewCustomer()
+    public Customer addNewCustomer(String username)
     {
-        Customer newCustomer = new Customer();
-        customerList.add(newCustomer);
-        return newCustomer;
+        customer = new Customer(username);
+        customerList.add(customer);
+        return customer;
     }
     
     public void deleteCustomer(int index)

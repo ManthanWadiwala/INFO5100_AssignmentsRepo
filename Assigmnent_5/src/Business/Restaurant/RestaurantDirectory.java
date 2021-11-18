@@ -5,10 +5,57 @@
  */
 package Business.Restaurant;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author harold
  */
 public class RestaurantDirectory {
+    private ArrayList<Restaurant> restaurantList;
+    private Restaurant restaurant;
+    private Dishes menu;
+    public RestaurantDirectory(){
+        this.restaurantList=new ArrayList<Restaurant>();
+    }
+
+    public ArrayList<Restaurant> getRestaurantList() {
+        return restaurantList;
+    }
+
+    public void setRestaurantList(ArrayList<Restaurant> restaurantList) {
+        this.restaurantList = restaurantList;
+    }
     
+    public Restaurant createRestaurantInfo(String username){
+        restaurant= new Restaurant(username);
+        restaurantList.add(restaurant);
+        
+        return restaurant;
+    }
+    
+    public void deleteRestaurant(String username){
+        for(int i=0;i<restaurantList.size();i++){
+            if(restaurantList.get(i).getAdminUsername().equals(username)){
+                restaurantList.remove(i);
+            }
+        }
+    }
+    
+    public void updateRestaurantInfo(Restaurant restro,String name,int number,String address){
+        restro.setName(name);
+        restro.setAddress(address);
+        restro.setNumber(number);
+    }
+    
+    public Dishes AddMenuDishes(Restaurant restro,String name,String desc,long amount){
+        menu=new Dishes(name, desc, amount);
+        restro.addDishes(menu);
+        return menu;
+    }
+    
+    public void DeleteDishes(Restaurant restro,Dishes menu){
+        restro.removeDishes(menu);
+        
+    }
 }

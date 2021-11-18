@@ -6,6 +6,7 @@
 package Business.Customer;
 
 import Business.Order.Order;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Customer {
     private String username;
     private String password;
     private String address;
+    private ArrayList<Order> orderList;
 
     public String getName() {
         return name;
@@ -72,10 +74,11 @@ public class Customer {
     private static int count = 0;  
     private int customerId;
     
-    public Customer() {
+    public Customer(String username) {
         count++;
         customerId = count;
+        orderList= new ArrayList<Order>();
     }
     
-    
+
 }

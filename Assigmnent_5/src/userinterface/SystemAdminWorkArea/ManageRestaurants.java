@@ -6,8 +6,11 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.EcoSystem;
+import Business.Restaurant.Restaurant;
+import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,6 +28,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        populateNetworkTable();
     }
 
     /**
@@ -205,10 +209,20 @@ public class ManageRestaurants extends javax.swing.JPanel {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
         String name = txtName.getText();
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
-       // UserAccount ua = system.getUserAccountDirectory().createUserAccount(username, password, null, new CustomerRole());
-        //Customer customer = system.ge
+        String uname= txtUsername.getText();
+        String password= txtPassword.getText();
+        UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new AdminRole());
+        try{
+        Restaurant restro= system.getRestaurantDirectory().createRestaurantInfo(uname);
+        }
+        catch(NullPointerException e)
+        {
+            System.out.println(e);
+        }
+        populateNetworkTable();
+        txtName.setText("");
+        txtUsername.setText("");
+        txtPassword.setText("");
 
     }//GEN-LAST:event_addBtnActionPerformed
 
@@ -224,7 +238,26 @@ public class ManageRestaurants extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
-
+    private void populateNetworkTable() {
+        DefaultTableModel model = (DefaultTableModel) networkJTable.getModel();
+        
+        model.setRowCount(0);
+        
+       // for()
+        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+           
+            if ("Business.Role.AdminRole".equals(user.getRole().getClass().getName())) {
+                Object[] row = new Object[3];
+               
+                row[0] = user.getName();
+                row[1] = user.getUsername();
+                row[2] = user.getPassword();
+                
+                model.addRow(row);
+            }
+            
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
     private javax.swing.JButton backJButton;
