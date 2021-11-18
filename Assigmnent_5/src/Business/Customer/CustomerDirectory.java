@@ -5,39 +5,48 @@
  */
 package Business.Customer;
 
+import Business.Order.Order;
+import Business.Restaurant.Dishes;
 import java.util.ArrayList;
 
 /**
  *
- * @author harold
+ * @author monal
  */
 public class CustomerDirectory {
-    
-    private ArrayList<Customer> customerList;
+    private ArrayList<Customer> custList;
+   
     private Customer customer;
-
-    public ArrayList<Customer> getCustomerList() {
-        return customerList;
-    }
-
-    public void setCustomerList(ArrayList<Customer> customerList) {
-        this.customerList = customerList;
+    public ArrayList<Customer> getCustList() {
+        return custList;
     }
     
-    public CustomerDirectory()
-            {
-                this.customerList = new ArrayList<Customer>();
-            }
-
-    public Customer addNewCustomer(String username)
-    {
-        customer = new Customer(username);
-        customerList.add(customer);
+    
+    
+    public void setCustList(ArrayList<Customer> custList) {
+        this.custList = custList;
+    }
+    
+    
+    
+    public CustomerDirectory(){
+        this.custList=new ArrayList<Customer>();
+    }
+    
+    
+    
+    public Customer createCustomer(String uName){
+        customer= new Customer(uName);
+        custList.add(customer);
         return customer;
     }
     
-    public void deleteCustomer(int index)
-    {
-        customerList.remove(index);
+    public void deleteCustomer(String username){
+        for(int i=0;i<custList.size();i++){
+            if(custList.get(i).getUserName().equals(username)){
+                custList.remove(i);
+            }
+        }
     }
+    
 }

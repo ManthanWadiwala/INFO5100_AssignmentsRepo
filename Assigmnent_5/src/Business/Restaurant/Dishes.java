@@ -7,20 +7,34 @@ package Business.Restaurant;
 
 /**
  *
- * @author manthanwadiwala
+ * @author monal
  */
 public class Dishes {
-    
     private String name;
+    private String price;
     private String description;
-    private long price;
+
+    public Dishes(String name,String description,String price) {
+        this.name=name;
+        this.price=price;
+        this.description=description;
+    }
     
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getDescription() {
@@ -30,23 +44,8 @@ public class Dishes {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public long getPrice() {
-        return price;
-    }
-
-    public void setPrice(long price) {
-        this.price = price;
-    }
     @Override
     public String toString() {
         return name;
     }
-
-    public Dishes(String name,String description,long price) {
-        this.name=name;
-        this.price=price;
-        this.description=description;
-    }
-    
 }

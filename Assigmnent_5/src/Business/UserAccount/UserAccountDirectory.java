@@ -4,16 +4,19 @@
  */
 package Business.UserAccount;
 
+import Business.EcoSystem;
 import Business.Employee.Employee;
+import Business.Restaurant.Restaurant;
+import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author monal
  */
 public class UserAccountDirectory {
-    
+   //private RestaurantDirectory resDir;
     private ArrayList<UserAccount> userAccountList;
 
     public UserAccountDirectory() {
@@ -32,7 +35,6 @@ public class UserAccountDirectory {
         return null;
     }
     
-    // added name field - can be applied for restaurant name, customer name
     public UserAccount createUserAccount(String name,String username, String password, Employee employee, Role role){
         UserAccount userAccount = new UserAccount();
         userAccount.setName(name);
@@ -44,18 +46,15 @@ public class UserAccountDirectory {
         return userAccount;
     }
     
-    public UserAccount updateUserAccount(String username,String password){
-        for (UserAccount ua : userAccountList)
-            if (ua.getUsername().equals(username)){
-               
-                ua.setPassword(password);
-                return ua;
-            }
-        return null;
+    public void deleteUserAccount(UserAccount user){
+        userAccountList.remove(user);
     }
     
-     public void deleteUserAccount(UserAccount user){
-        userAccountList.remove(user);
+    public void updateUserAccount(UserAccount user,String name,String username, String password){
+       
+        user.setName(name);
+        user.setUsername(username);
+        user.setPassword(password);
     }
     
     public boolean checkIfUsernameIsUnique(String username){

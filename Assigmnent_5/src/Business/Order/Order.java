@@ -5,40 +5,49 @@
  */
 package Business.Order;
 
-import Business.Restaurant.Menu;
+import Business.Restaurant.Dishes;
 import java.util.ArrayList;
 
 /**
  *
- * @author manthanwadiwala
+ * @author monal
  */
 public class Order {
-    
-    //private static int count = 0; 
-    
-    private String orderId;
-    private String status;
-    private String restaurantName;
+    private String order_id;
+
+    public String getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(String order_id) {
+        this.order_id = order_id;
+    }
+    private String restaurentName;
     private String customerName;
-    private String deliveryMan;
-    private ArrayList<Menu> Order;
+    private String deliverMan;
+    private ArrayList<Dishes> Order;
     private String cost;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+   
     private String deliveryAddress;
+    
+    
 
-    public String getDeliveryAddress() {
-        return deliveryAddress;
+    public String getRestaurentName() {
+        return restaurentName;
     }
 
-    public void setDeliveryAddress(String deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
-
-    public String getRestaurantName() {
-        return restaurantName;
-    }
-
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
+    public void setRestaurentName(String restaurentName) {
+        this.restaurentName = restaurentName;
     }
 
     public String getCustomerName() {
@@ -49,12 +58,20 @@ public class Order {
         this.customerName = customerName;
     }
 
-    public String getDeliveryMan() {
-        return deliveryMan;
+    public String getDeliverMan() {
+        return deliverMan;
     }
 
-    public void setDeliveryMan(String deliveryMan) {
-        this.deliveryMan = deliveryMan;
+    public void setDeliverMan(String deliverMan) {
+        this.deliverMan = deliverMan;
+    }
+
+    public ArrayList<Dishes> getOrder() {
+        return Order;
+    }
+
+    public void setOrder(ArrayList<Dishes> Order) {
+        this.Order = Order;
     }
 
     public String getCost() {
@@ -65,39 +82,16 @@ public class Order {
         this.cost = cost;
     }
 
-    public ArrayList<Menu> getOrder() {
-        return Order;
+    public String getDeliveryAddress() {
+        return deliveryAddress;
     }
 
-    public void setOrder(ArrayList<Menu> Order) {
-        this.Order = Order;
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
     }
-
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-      
-    //public Order() {
-       // count++;
-       // orderId = count;
-    //}
-    
     @Override
     public String toString() {
-        return orderId;
+        return order_id;
     }
     
 }

@@ -10,64 +10,14 @@ import java.util.ArrayList;
 
 /**
  *
- * @author harold
+ * @author monal
  */
 public class Restaurant {
-    
-    private String name;
-    private String address;
-    private int number;
-    private String adminUsername;
+    private String adminUName;
     private ArrayList<Dishes> Menu;
     private ArrayList<Order> orderList;
-    int id=1;
-    
-    
-    public String getName() {
-        return name;
-    }
+    int id=101;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number =  number;
-    }
-   
-    public String getAdminUsername() {
-        return adminUsername;
-    }
-
-    public void setAdminUName(String adminUsername) {
-        this.adminUsername = adminUsername;
-    }
-    
-    public ArrayList<Dishes> getMenu() {
-        return Menu;
-    }
-    public void addDishes(Dishes menu){
-        
-        Menu.add(menu);
-    }
-    
-    public void removeDishes(Dishes menu){
-        
-        Menu.remove(menu);
-    }
-    
     public ArrayList<Order> getOrderList() {
         return orderList;
     }
@@ -76,13 +26,83 @@ public class Restaurant {
         this.orderList = orderList;
     }
 
+  
+    
+     public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Dishes> Order, String cost, String deliveryAddress) {
+        Order order=new Order();
+        order.setOrder_id(String.valueOf(id));
+        order.setCustomerName(customerName);
+        order.setRestaurentName(restaurentName);
+        order.setDeliverMan(deliverMan);
+        order.setOrder(Order);
+        order.setCost(cost);
+        order.setDeliveryAddress(deliveryAddress);
+        order.setStatus("New Order");
+        orderList.add(order);
+        id++;
+    }
+    public ArrayList<Dishes> getMenu() {
+        return Menu;
+    }
+    public void addDishes(Dishes menu){
+        
+        Menu.add(menu);
+    }
+    
+    
+    
+    public void removeDishes(Dishes menu){
+        
+        Menu.remove(menu);
+    }
 
-    public Restaurant(String adminUsername) {
-        this.adminUsername=adminUsername;
+    
+    
+    public String getAdminUName() {
+        return adminUName;
+    }
+
+    
+
+    public void setAdminUName(String adminUName) {
+        this.adminUName = adminUName;
+    }
+
+    public Restaurant(String UName) {
+        this.adminUName=UName;
         Menu=new ArrayList<Dishes>();
         orderList=new ArrayList<Order>();
     }
+    
   
+    private String name;
+    private String address;
+    private String number;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+   
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
     @Override
     public String toString() {

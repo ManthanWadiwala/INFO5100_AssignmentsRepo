@@ -15,29 +15,19 @@ import java.util.ArrayList;
 
 /**
  *
- * @author MyPC1
+ * @author monal
  */
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
-
-    public static EcoSystem getBusiness() {
-        return business;
-    }
-
-    public static void setBusiness(EcoSystem business) {
-        EcoSystem.business = business;
-    }
-
-    public RestaurantDirectory getRestaurantDirectory() {
-        return restaurantDirectory;
-    }
-
-    public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
-        this.restaurantDirectory = restaurantDirectory;
-    }
+    private RestaurantDirectory restaurantDirectory;
+    private CustomerDirectory customerDirectory;
 
     public CustomerDirectory getCustomerDirectory() {
+        if(customerDirectory == null)
+        {
+            customerDirectory = new CustomerDirectory();
+        }
         return customerDirectory;
     }
 
@@ -46,15 +36,35 @@ public class EcoSystem extends Organization{
     }
 
     public DeliveryManDirectory getDeliveryManDirectory() {
+        if(deliveryManDirectory == null)
+        {
+            deliveryManDirectory = new DeliveryManDirectory();
+        }
         return deliveryManDirectory;
     }
 
     public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
         this.deliveryManDirectory = deliveryManDirectory;
     }
-    private RestaurantDirectory restaurantDirectory;
-    private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
+
+    public RestaurantDirectory getRestaurantDirectory() {
+        if(restaurantDirectory == null)
+        {
+            restaurantDirectory = new RestaurantDirectory();
+        }
+        return restaurantDirectory;
+    }
+
+    public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
+        this.restaurantDirectory = restaurantDirectory;
+    }
+
+  
+
+    
+
+    
 
     public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
 

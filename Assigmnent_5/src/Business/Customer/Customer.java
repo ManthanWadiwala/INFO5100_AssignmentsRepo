@@ -6,45 +6,62 @@
 package Business.Customer;
 
 import Business.Order.Order;
+import Business.Restaurant.Dishes;
 import java.util.ArrayList;
 
 /**
  *
- * @author harold
+ * @author monal
  */
-
-
-
 public class Customer {
+    int id=101;
+    private String Name;
+     private String UserName;
+      private ArrayList<Order> orderList;
+     public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Dishes> Order, String cost, String deliveryAddress) {
+        Order order=new Order();
+        order.setOrder_id(String.valueOf(id));
+        order.setCustomerName(customerName);
+        order.setRestaurentName(restaurentName);
+        order.setDeliverMan(deliverMan);
+        order.setOrder(Order);
+        order.setCost(cost);
+        order.setDeliveryAddress(deliveryAddress);
+        order.setStatus("New Order");
+        orderList.add(order);
+        id++;
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String UserName) {
+        this.UserName = UserName;
+    }
     
-    private String name;
-    private String username;
-    private String password;
     private String address;
-    private ArrayList<Order> orderList;
+    private String number;
 
+    public Customer(String UserName){
+        this.UserName=UserName;
+        orderList=new ArrayList<Order>();
+    }
+    
     public String getName() {
-        return name;
+        return Name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
-    public String getUsername() {
-        return username;
+    public ArrayList<Order> getOrderList() {
+        return orderList;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setOrderList(ArrayList<Order> order) {
+        this.orderList = order;
     }
 
     public String getAddress() {
@@ -55,30 +72,13 @@ public class Customer {
         this.address = address;
     }
 
-    public static int getCount() {
-        return count;
+    public String getNumber() {
+        return number;
     }
 
-    public static void setCount(int count) {
-        Customer.count = count;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
     
-    private static int count = 0;  
-    private int customerId;
-    
-    public Customer(String username) {
-        count++;
-        customerId = count;
-        orderList= new ArrayList<Order>();
-    }
-    
-
 }
