@@ -58,6 +58,12 @@ public class ManageCustomers extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
 
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+
         jLabel4.setText("Password");
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +94,7 @@ public class ManageCustomers extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Name", "User Name", "Password"
+                "Name", "Username", "Password"
             }
         ) {
             Class[] types = new Class [] {
@@ -104,6 +110,11 @@ public class ManageCustomers extends javax.swing.JPanel {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        networkJTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                networkJTableMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(networkJTable);
@@ -211,13 +222,18 @@ public class ManageCustomers extends javax.swing.JPanel {
         int selectRow = networkJTable.getSelectedRow();
 
         if(selectRow>=0){
-            String username= (String) networkJTable.getValueAt(selectRow, 1);
-            String password= (String) networkJTable.getValueAt(selectRow, 2);
+            //String username= (String) networkJTable.getValueAt(selectRow, 1);
+            //String password= (String) networkJTable.getValueAt(selectRow, 2);
+            String username=txtName.getText();
+            String password=txtUsername.getText();
             user=system.getUserAccountDirectory().authenticateUser(username, password);
 
-            txtName.setText(user.getName()+"");
-            txtUsername.setText(user.getUsername()+"");
-            txtPassword.setText(user.getPassword()+"");
+            //txtName.setText(user.getName());
+            //txtUsername.setText(user.getUsername());
+            //txtPassword.setText(user.getPassword());
+            UserAccount ua = system.getUserAccountDirectory().updateUserAccount(username, password);
+            populateTable();
+            
         }
         else {
             JOptionPane.showMessageDialog(null,"Please select a row");
@@ -226,11 +242,18 @@ public class ManageCustomers extends javax.swing.JPanel {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
+        
         String name = txtName.getText();
         String username = txtUsername.getText();
         String password = txtPassword.getText();
         UserAccount ua = system.getUserAccountDirectory().createUserAccount(name,username, password, null, new CustomerRole());
-        //Customer cust= system.getCustomerDirectory().addNewCustomer(username);
+        try{
+        Customer cust= system.getCustomerDirectory().addNewCustomer(username);
+        }
+        catch(NullPointerException e)
+        {
+            System.out.println(e);
+        }
         populateTable();
         txtName.setText("");
         txtUsername.setText("");
@@ -240,6 +263,24 @@ public class ManageCustomers extends javax.swing.JPanel {
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         // TODO add your handling code here:
+        int selectedRowIndex = networkJTable.getSelectedRow();
+        
+        if(selectedRowIndex < 0)
+        {
+                JOptionPane.showMessageDialog(this,"Please select a row to delete.");
+            return;
+        }
+        
+        DefaultTableModel model=(DefaultTableModel)networkJTable.getModel();
+        String username=(String) networkJTable.getValueAt(selectedRowIndex,1);
+        String password=(String) networkJTable.getValueAt(selectedRowIndex,2);
+        UserAccount user=system.getUserAccountDirectory().authenticateUser(username, password);
+        System.out.println(username);
+        
+        system.getUserAccountDirectory().deleteUserAccount(user);
+
+        populateTable();
+        
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -255,6 +296,32 @@ public class ManageCustomers extends javax.swing.JPanel {
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
+
+    private void networkJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_networkJTableMouseClicked
+        // TODO add your handling code here:
+        try{
+        int selectedRow = networkJTable.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel)networkJTable.getModel();
+        
+        txtName.setText(model.getValueAt(selectedRow, 0).toString());
+        txtName.setEditable(false);
+        txtUsername.setEditable(false);
+        txtUsername.setText(model.getValueAt(selectedRow, 1).toString());
+        txtPassword.setText(model.getValueAt(selectedRow, 2).toString());
+        
+        addBtn.setEnabled(false);
+        
+        }
+        catch(NullPointerException e)
+        {
+            System.out.println("Exception at MouseClick on JTable"+e);         
+        }
+    }//GEN-LAST:event_networkJTableMouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        addBtn.setEnabled(true);
+    }//GEN-LAST:event_formMouseClicked
     
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) networkJTable.getModel();

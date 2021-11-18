@@ -44,6 +44,20 @@ public class UserAccountDirectory {
         return userAccount;
     }
     
+    public UserAccount updateUserAccount(String username,String password){
+        for (UserAccount ua : userAccountList)
+            if (ua.getUsername().equals(username)){
+               
+                ua.setPassword(password);
+                return ua;
+            }
+        return null;
+    }
+    
+     public void deleteUserAccount(UserAccount user){
+        userAccountList.remove(user);
+    }
+    
     public boolean checkIfUsernameIsUnique(String username){
         for (UserAccount ua : userAccountList){
             if (ua.getUsername().equals(username))
