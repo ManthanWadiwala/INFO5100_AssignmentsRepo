@@ -6,7 +6,9 @@
 package Business.Restaurant;
 
 import Business.Order.Order;
+import java.awt.Menu;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -44,20 +46,24 @@ public class Restaurant {
     public ArrayList<Dishes> getMenu() {
         return Menu;
     }
-    public void addDishes(Dishes menu){
-        
+    public void addDishes(Dishes menu){ 
         Menu.add(menu);
-    }
-    
-    
-    
-    public void removeDishes(Dishes menu){
         
-        Menu.remove(menu);
+    }
+ 
+
+    public void removeDishes(String item){    
+        //Menu.remove(menu);
+        Iterator<Dishes> dish = Menu.iterator();
+        while (dish.hasNext()) {
+               if (dish.next().getName().equals(item)) {
+                   dish.remove();
+               }
+           }
+        
     }
 
-    
-    
+ 
     public String getAdminUName() {
         return adminUName;
     }

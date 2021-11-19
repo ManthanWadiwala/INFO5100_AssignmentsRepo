@@ -55,8 +55,9 @@ public class RestaurantDirectory {
         return menu;
     }
     
-    public void DeleteDishes(Restaurant restro,Dishes menu){
-        restro.removeDishes(menu);
+    public Dishes DeleteDishes(Restaurant restro,String item){
+        restro.removeDishes(item);
+        return null;
         
     }
     

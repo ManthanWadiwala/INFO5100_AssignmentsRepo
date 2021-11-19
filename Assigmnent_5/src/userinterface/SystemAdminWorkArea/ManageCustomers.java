@@ -254,9 +254,16 @@ public class ManageCustomers extends javax.swing.JPanel {
         String name = nameJTextField.getText();
         String uname=uNameTextField.getText();
         String password=PasswordField.getText();
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(uname))
+        {
         UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new CustomerRole());
         Customer cust= system.getCustomerDirectory().createCustomer(uname);
         populateNetworkTable();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Username "+uname+" already exists.");
+        }
         nameJTextField.setText("");
         uNameTextField.setText("");
         PasswordField.setText("");
@@ -275,9 +282,9 @@ public class ManageCustomers extends javax.swing.JPanel {
             String pwd= (String) networkJTable.getValueAt(selectRow, 2);
             user=system.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            nameJTextField.setText(user.getName()+"");
-            uNameTextField.setText(user.getUsername()+"");
-            PasswordField.setText(user.getPassword()+"");
+            nameJTextField.setText(user.getName());
+            uNameTextField.setText(user.getUsername());
+            PasswordField.setText(user.getPassword());
             // system.getUserAccountDirectory().deleteUserAccount(user);
 
         }
