@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author monal
+ * @author harold
  */
 public class CustomerDirectory {
     private ArrayList<Customer> custList;

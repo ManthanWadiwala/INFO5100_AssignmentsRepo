@@ -12,7 +12,7 @@ import userinterface.DeliveryManRole.DeliveryManWorkAreaJPanel;
 
 /**
  *
- * @author monal
+ * @author harold
  */
 public class DeliverManRole extends Role {
 
