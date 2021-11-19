@@ -10,6 +10,7 @@ import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
@@ -30,11 +31,11 @@ public class ManageInfo extends javax.swing.JPanel {
         this.account=account;
         this.system=system;
         this.userProcessContainer=userProcessContainer;
-         nameTxt.setEnabled(false);
-        addressTxt.setEnabled(false);
-        numTxt.setEnabled(false);
-        SaveBtn.setEnabled(false);
-        UpdateBtn.setEnabled(true);
+         //nameTxt.setEnabled(false);
+        //addressTxt.setEnabled(false);
+        //numTxt.setEnabled(false);
+        //SaveBtn.setEnabled(false);
+        //UpdateBtn.setEnabled(true);
         
         setTextFields();
     }
@@ -68,58 +69,58 @@ public class ManageInfo extends javax.swing.JPanel {
         numTxt = new javax.swing.JTextField();
         backBtn = new javax.swing.JButton();
         SaveBtn = new javax.swing.JButton();
-        UpdateBtn = new javax.swing.JButton();
+        enterpriseLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Restaurant Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
-        jLabel3.setText("Phone Number");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        jLabel3.setText("Contact");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
 
         jLabel4.setText("Address");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
         addressTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addressTxtActionPerformed(evt);
             }
         });
-        add(addressTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 150, -1));
-        add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 150, -1));
+        add(addressTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 150, -1));
+        add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 150, -1));
 
         numTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numTxtActionPerformed(evt);
             }
         });
-        add(numTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 150, -1));
+        add(numTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 150, -1));
 
-        backBtn.setText("<<<Back");
+        backBtn.setBackground(new java.awt.Color(8, 34, 137));
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
+        backBtn.setLabel("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);
             }
         });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, -1));
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        SaveBtn.setText("Save");
+        SaveBtn.setBackground(new java.awt.Color(8, 34, 137));
+        SaveBtn.setForeground(new java.awt.Color(255, 255, 255));
+        SaveBtn.setText("Update");
         SaveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveBtnActionPerformed(evt);
             }
         });
-        add(SaveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 90, -1));
+        add(SaveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 90, -1));
 
-        UpdateBtn.setText("Update");
-        UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateBtnActionPerformed(evt);
-            }
-        });
-        add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 100, -1));
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setText("Manage Restaurant Information");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 300, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void numTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numTxtActionPerformed
@@ -139,6 +140,7 @@ public class ManageInfo extends javax.swing.JPanel {
         for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
            if(restro.getAdminUName().equals(account.getUsername())){
                 system.getRestaurantDirectory().updateRestaurantInfo(restro,name, number, address);
+                JOptionPane.showMessageDialog(this,"Restaurant Details updated successfully.");
             }
           
             
@@ -148,23 +150,13 @@ public class ManageInfo extends javax.swing.JPanel {
         //System.out.println(system.getRestaurantDirectory().getRestaurantList().get(0).getName());
         
         //system.getRestaurantDirectory().getRestaurantList().updateRestaurantInfo(name, number, address);
-        nameTxt.setEnabled(false);
-        addressTxt.setEnabled(false);
-        numTxt.setEnabled(false);
-        SaveBtn.setEnabled(false);
-        UpdateBtn.setEnabled(true);
+        //nameTxt.setEnabled(false);
+        //addressTxt.setEnabled(false);
+        //numTxt.setEnabled(false);
+        //SaveBtn.setEnabled(false);
+        //UpdateBtn.setEnabled(true);
         
     }//GEN-LAST:event_SaveBtnActionPerformed
-
-    private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
-        // TODO add your handling code here:
-         nameTxt.setEnabled(true);
-        addressTxt.setEnabled(true);
-        numTxt.setEnabled(true);
-        SaveBtn.setEnabled(true);
-        UpdateBtn.setEnabled(false);
-        
-    }//GEN-LAST:event_UpdateBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
@@ -179,9 +171,9 @@ public class ManageInfo extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SaveBtn;
-    private javax.swing.JButton UpdateBtn;
     private javax.swing.JTextField addressTxt;
     private javax.swing.JButton backBtn;
+    private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

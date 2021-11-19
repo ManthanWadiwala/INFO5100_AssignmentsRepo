@@ -13,11 +13,21 @@ public class Dishes {
     private String name;
     private String price;
     private String description;
+    private String quanitity;
+
+    public String getQuanitity() {
+        return quanitity;
+    }
+
+    public void setQuanitity(String quanitity) {
+        this.quanitity = quanitity;
+    }
 
     public Dishes(String name,String description,String price) {
         this.name=name;
         this.price=price;
         this.description=description;
+
     }
     
 

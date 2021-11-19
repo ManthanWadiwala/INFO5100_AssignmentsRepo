@@ -52,13 +52,12 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                     
                 for(Order order : deliveryMan.getOrderList()){
                 Object[] row = new Object[6];
+                row[0] = order;
+                row[1] = order.getRestaurantName();
                 row[2] = order.getCustomerName();
-                row[1] = order.getRestaurentName();
-               
+                row[3] = order.getDeliveryAddress();
                 row[4] = order.getCost();
                 row[5] = order.getStatus();
-                row[0] = order;
-                row[3] = order.getDeliveryAddress();
                 model.addRow(row);
                     
                 }
@@ -81,7 +80,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         workRequestJTable = new javax.swing.JTable();
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        enterpriseLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -94,7 +93,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Order Id", "Restaurant Name", "Customer Name", "Delivery Address", "Amount", "Status"
+                "Order ID", "Restaurant Name", "Customer Name", "Delivery Address", "Amount", "Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -114,7 +113,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(workRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 640, 140));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 830, 140));
 
         processJButton.setText("Process");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +121,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 170, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 170, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -130,10 +129,11 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 150, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 150, -1));
 
-        jLabel1.setText("Order Detail");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setText("Order Details");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 130, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
@@ -157,7 +157,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_refreshJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton refreshJButton;

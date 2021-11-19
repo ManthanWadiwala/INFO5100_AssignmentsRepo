@@ -21,10 +21,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author manthanwadiwala
  */
-public class MenuPanel extends javax.swing.JPanel {
+public class MenuPanel1 extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-    int sum=0;
+    double sum=0;
     
     private UserAccount userAccount;
     Restaurant restro;
@@ -33,7 +33,7 @@ public class MenuPanel extends javax.swing.JPanel {
     /**
      * Creates new form RequestLabTestJPanel
      */
-    public MenuPanel(JPanel userProcessContainer, UserAccount account,EcoSystem system,Restaurant restro) {
+    public MenuPanel1(JPanel userProcessContainer, UserAccount account,EcoSystem system,Restaurant restro) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -45,7 +45,7 @@ public class MenuPanel extends javax.swing.JPanel {
         totalAmtLabel.setText("0");
        
     }
-    public void populateTable(){
+     public void populateTable(){
             DefaultTableModel model = (DefaultTableModel) menuTable.getModel();
         
             model.setRowCount(0);
@@ -61,18 +61,34 @@ public class MenuPanel extends javax.swing.JPanel {
      public void populateCart(Dishes item){
         DefaultTableModel model = (DefaultTableModel) cartTable.getModel();
         model.setRowCount(0);
+        ArrayList<Double> a1 = new ArrayList<Double>(); 
         
          items.add(item);
          Object[] row = new Object[3];
                 for(Dishes dish:items){
-                     row[0] = dish;
+                     row[0] = dish.getName();
                      row[1] = dish.getDescription();
                      row[2] = dish.getPrice();
-                     sum=sum+Integer.parseInt(dish.getPrice());
+                     a1.add(Double.parseDouble(dish.getPrice()));
+                    
                      model.addRow(row);
-                }  
+                }
+         
+         populateTotal(a1);
+         //return sum;
+         
+       
      }
 
+       public void populateTotal(ArrayList<Double> a1)
+       {
+           sum=0;
+           for(int i = 0; i < a1.size(); i++){
+            System.out.println(a1.get(i));
+            sum += a1.get(i);
+         }
+           totalAmtLabel.setText(Double.toString(sum));
+       }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,28 +101,27 @@ public class MenuPanel extends javax.swing.JPanel {
         cardBtn = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
         valueLabel = new javax.swing.JLabel();
-        enterpriseLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         cartTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         menuTable = new javax.swing.JTable();
         orderBtn1 = new javax.swing.JButton();
         RemoveBtn = new javax.swing.JButton();
-        addressTxt = new javax.swing.JTextField();
         enterpriseLabel1 = new javax.swing.JLabel();
         totalAmtLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        enterpriseLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cardBtn.setText("Add to Cart");
+        cardBtn.setText("Add Items");
         cardBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cardBtnActionPerformed(evt);
             }
         });
-        add(cardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 170, -1));
+        add(cardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 120, -1));
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -119,10 +134,6 @@ public class MenuPanel extends javax.swing.JPanel {
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 62, 130, 40));
-
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("Address:");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 90, 30));
 
         cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -145,7 +156,7 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(cartTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, 100));
 
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,33 +188,36 @@ public class MenuPanel extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, 100));
 
-        orderBtn1.setText("Order");
+        orderBtn1.setText("Place Order");
         orderBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderBtn1ActionPerformed(evt);
             }
         });
-        add(orderBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, -1, -1));
+        add(orderBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, -1, -1));
 
-        RemoveBtn.setText("Remove From Cart");
+        RemoveBtn.setText("Remove Items");
         RemoveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoveBtnActionPerformed(evt);
             }
         });
-        add(RemoveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
-        add(addressTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 170, -1));
+        add(RemoveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 120, -1));
 
         enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel1.setText("Place an Order:");
-        add(enterpriseLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, 30));
+        enterpriseLabel1.setText("Your Cart");
+        add(enterpriseLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 90, 30));
 
         totalAmtLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         totalAmtLabel.setText("jLabel1");
-        add(totalAmtLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, -1, -1));
+        add(totalAmtLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, -1, -1));
 
         jLabel1.setText("Order Total ($) :");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, -1, -1));
+
+        enterpriseLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel2.setText("Place an Order:");
+        add(enterpriseLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void cardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardBtnActionPerformed
@@ -238,11 +252,14 @@ public class MenuPanel extends javax.swing.JPanel {
 
     private void orderBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderBtn1ActionPerformed
         // TODO add your handling code here:
-        String address=addressTxt.getText();
-        restro.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
+        //String address=addressTxt.getText();
+        
         for(Customer cust:system.getCustomerDirectory().getCustList()){
             if(userAccount.getUsername().equals(cust.getUserName())){
-                cust.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
+                String address=cust.getAddress();
+                String contact=cust.getNumber();
+                cust.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address,contact);
+                restro.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address,contact);
                 JOptionPane.showMessageDialog(this,"Order Placed Successfully!.");
             }
         }
@@ -250,9 +267,10 @@ public class MenuPanel extends javax.swing.JPanel {
 
     private void RemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRow = cartTable.getSelectedRow();
+         int selectedRow = cartTable.getSelectedRow();
+         System.out.println(selectedRow);
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this,"Please select a row to delete");
         }
         else{
             Dishes item=(Dishes)cartTable.getValueAt(selectedRow, 0);
@@ -265,7 +283,7 @@ public class MenuPanel extends javax.swing.JPanel {
                      row[1] = dish.getDescription();
                      row[2] = dish.getPrice();
                      model.addRow(row);
-                }  
+                } 
           
         }
         
@@ -273,12 +291,11 @@ public class MenuPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton RemoveBtn;
-    private javax.swing.JTextField addressTxt;
     private javax.swing.JButton backJButton;
     private javax.swing.JButton cardBtn;
     private javax.swing.JTable cartTable;
-    private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel enterpriseLabel1;
+    private javax.swing.JLabel enterpriseLabel2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

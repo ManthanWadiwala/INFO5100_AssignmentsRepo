@@ -22,7 +22,7 @@ public class Order {
     public void setOrder_id(String order_id) {
         this.order_id = order_id;
     }
-    private String restaurentName;
+    private String restaurantName;
     private String customerName;
     private String deliverMan;
     private ArrayList<Dishes> Order;
@@ -39,15 +39,25 @@ public class Order {
 
    
     private String deliveryAddress;
-    
-    
+    private String contactNumber;
 
-    public String getRestaurentName() {
-        return restaurentName;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setRestaurentName(String restaurentName) {
-        this.restaurentName = restaurentName;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+    
+    
+    
+
+    public String getRestaurantName() {
+        return restaurantName;
+    }
+
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
     }
 
     public String getCustomerName() {

@@ -14,7 +14,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import userinterface.CustomerRole.MenuPanel;
+import userinterface.CustomerRole.MenuPanel1;
 
 /**
  *
@@ -47,12 +47,13 @@ public class ManageOrders extends javax.swing.JPanel {
             if (restro.getAdminUName().equals(account.getUsername())) {
                 //System.out.println(restro.getOrderList());
                for(Order menu:restro.getOrderList()){
-                Object[] row = new Object[5];
+                Object[] row = new Object[6];
                 row[0] = menu;
                 row[1] = menu.getCustomerName();
                 row[2] = menu.getDeliveryAddress();
-                row[3] = menu.getCost();
-                row[4] = menu.getStatus();
+                row[3] = menu.getContactNumber();
+                row[4] = menu.getCost();
+                row[5] = menu.getStatus();
                 model.addRow(row);
                }
                 
@@ -76,26 +77,27 @@ public class ManageOrders extends javax.swing.JPanel {
         viewOrderBtn = new javax.swing.JButton();
         AssignBtn1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        enterpriseLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Customer Name", "Delivery Address", "Amount", "Status"
+                "Order ID", "Customer Name", "Delivery Address", "Contact", "Amount", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, true, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -108,7 +110,7 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(orderTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 580, 120));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 580, 120));
 
         backBtn.setText("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +118,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 110, -1));
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 110, -1));
 
         viewOrderBtn.setText("View Order");
         viewOrderBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +126,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 viewOrderBtnActionPerformed(evt);
             }
         });
-        add(viewOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 150, -1));
+        add(viewOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 150, -1));
 
         AssignBtn1.setText("Assign to Delivery Man ");
         AssignBtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +134,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 AssignBtn1ActionPerformed(evt);
             }
         });
-        add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 210, -1));
+        add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 210, -1));
 
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +142,11 @@ public class ManageOrders extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 120, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 120, -1));
+
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setText("Manage Orders");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 150, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -187,6 +193,7 @@ public class ManageOrders extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AssignBtn1;
     private javax.swing.JButton backBtn;
+    private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable orderTable;
