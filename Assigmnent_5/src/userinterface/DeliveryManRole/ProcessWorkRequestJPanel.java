@@ -4,6 +4,8 @@
  */
 package userinterface.DeliveryManRole;
 
+import Business.Customer.Customer;
+import Business.EcoSystem;
 import Business.Order.Order;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -19,13 +21,17 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     Order order;
+    EcoSystem system;
+    
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public ProcessWorkRequestJPanel(JPanel userProcessContainer, Order order) {
+    public ProcessWorkRequestJPanel(JPanel userProcessContainer, Order order,EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.order = order;
+        this.system = system;
+        
     }
 
     /**
@@ -115,6 +121,14 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
         order.setStatus(statusJTextField.getText());
+        for(Customer cust:system.getCustomerDirectory().getCustList()){
+            if(order.getCustomerName().equals(cust.getUserName())){
+                for(Order o : cust.getOrderList()){
+                    o.setStatus(statusJTextField.getText());
+                }
+            }
+        }
+        
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

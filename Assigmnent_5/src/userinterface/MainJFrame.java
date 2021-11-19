@@ -10,6 +10,9 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -29,6 +32,10 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         system = dB4OUtil.retrieveSystem();
         this.setSize(1680, 1050);
+       // String uniqueID = UUID.randomUUID().toString();
+        //System.out.println(uniqueID);
+        int unique_id= (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE); 
+        System.out.println(unique_id);
     }
 
     /**
@@ -128,6 +135,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
+        try{
          UserAccount ua = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());        
         // System.out.println(ua.getUsername());        
         CardLayout layout = (CardLayout) container.getLayout();
@@ -136,6 +144,12 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.next(container);
         loginJButton.setEnabled(false);
         logoutJButton.setEnabled(true);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this,"Invalid Login!.");
+        }
+        
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed

@@ -28,6 +28,15 @@ public class Order {
     private ArrayList<Dishes> Order;
     private String cost;
     private String status;
+    private String comments;
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
 
     public String getStatus() {
         return status;

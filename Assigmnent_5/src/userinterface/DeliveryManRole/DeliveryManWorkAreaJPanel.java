@@ -132,8 +132,8 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 150, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("Order Details");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 130, 30));
+        enterpriseLabel.setText("Assigned Orders");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 160, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
@@ -145,7 +145,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         }
         
         Order order = (Order)workRequestJTable.getValueAt(selectedRow, 0); 
-        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, order);
+        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, order,business);
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

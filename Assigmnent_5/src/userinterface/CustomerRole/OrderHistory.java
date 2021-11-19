@@ -160,8 +160,7 @@ public class OrderHistory extends javax.swing.JPanel {
                for(Order menu:cust.getOrderList()){
                 Object[] row = new Object[4];
                 row[0] = menu;
-                row[1] = menu.getRestaurantName();
-               
+                row[1] = menu.getRestaurantName();            
                 row[2] = menu.getCost();
                 row[3] = menu.getStatus();
                 model.addRow(row);

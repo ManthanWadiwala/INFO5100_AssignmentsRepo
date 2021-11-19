@@ -36,6 +36,15 @@ public class OrderDetails extends javax.swing.JPanel {
         this.order = order;
         this.system = system;
         populateTable();
+        
+        for(Customer cust:system.getCustomerDirectory().getCustList()){
+            if(order.getCustomerName().equals(cust.getUserName())){
+                for(Order o : cust.getOrderList()){
+         
+                    jLabel3.setText(o.getComments());
+                }
+            }
+        }
     }
 
     private void populateTable() {
@@ -50,6 +59,7 @@ public class OrderDetails extends javax.swing.JPanel {
                      row[1] = dish.getDescription();
                      row[2] = dish.getPrice();
                      model.addRow(row);
+                     
                 }  
     }
     
@@ -67,6 +77,8 @@ public class OrderDetails extends javax.swing.JPanel {
         BackBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         statusBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,7 +119,7 @@ public class OrderDetails extends javax.swing.JPanel {
                 BackBtnActionPerformed(evt);
             }
         });
-        add(BackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
+        add(BackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
 
         jLabel1.setText("Order ID:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
@@ -118,7 +130,13 @@ public class OrderDetails extends javax.swing.JPanel {
                 statusBtnActionPerformed(evt);
             }
         });
-        add(statusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, -1));
+        add(statusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, -1));
+
+        jLabel2.setText("Comments:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
+
+        jLabel3.setText("jLabel3");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 460, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
@@ -133,10 +151,15 @@ public class OrderDetails extends javax.swing.JPanel {
         order.setStatus("Ready to Deliver");
         for(Customer cust:system.getCustomerDirectory().getCustList()){
             if(order.getCustomerName().equals(cust.getUserName())){
-                for(Order order : cust.getOrderList()){
-                    order.setStatus("Ready to Deliver");
+                for(Order o : cust.getOrderList()){
+                    if(o.getOrder_id().equals(order.getOrder_id()))
+                    o.setStatus("Ready to Deliver");
                 }
             }
+        }
+        
+        for(Customer cust:system.getCustomerDirectory().getCustList()){
+            
         }
         
     }//GEN-LAST:event_statusBtnActionPerformed
@@ -145,6 +168,8 @@ public class OrderDetails extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable orderTable;
     private javax.swing.JButton statusBtn;
