@@ -95,7 +95,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         ManageInfo manageInfo=new ManageInfo(userProcessContainer,account,system);
-        userProcessContainer.add("Manage Restaurents",manageInfo);
+        userProcessContainer.add("Manage Restaurant Information",manageInfo);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         
@@ -105,14 +105,14 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageMenuActionPerformed
          ManageMenu manageMenu=new ManageMenu(userProcessContainer,account,system);
-        userProcessContainer.add("Manage Restaurents",manageMenu);
+        userProcessContainer.add("Manage Restaurants",manageMenu);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageMenuActionPerformed
 
     private void manageOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrdersActionPerformed
         ManageOrders manageOrder=new ManageOrders(userProcessContainer,account,system);
-        userProcessContainer.add("Manage Restaurents",manageOrder);
+        userProcessContainer.add("Manage Orders",manageOrder);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageOrdersActionPerformed

@@ -14,7 +14,7 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import userinterface.CustomerRole.CustomerAreaJPanel;
+import userinterface.CustomerRole.CustomerAreaJPanel1;
 
 /**
  *

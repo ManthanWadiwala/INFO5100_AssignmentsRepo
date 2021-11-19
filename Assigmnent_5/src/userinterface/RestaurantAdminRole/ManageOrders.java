@@ -118,7 +118,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 110, -1));
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 110, -1));
 
         viewOrderBtn.setText("View Order");
         viewOrderBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +142,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 120, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 120, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Manage Orders");
