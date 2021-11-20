@@ -157,12 +157,12 @@ public class OrderHistory extends javax.swing.JPanel {
            
             if (cust.getUserName().equals(account.getUsername())) {
                // System.out.println(restro.getOrderList());
-               for(Order menu:cust.getOrderList()){
+               for(Order order:cust.getOrderList()){
                 Object[] row = new Object[4];
-                row[0] = menu;
-                row[1] = menu.getRestaurantName();            
-                row[2] = menu.getCost();
-                row[3] = menu.getStatus();
+                row[0] = order.getOrder_id();
+                row[1] = order.getRestaurantName();            
+                row[2] = order.getCost();
+                row[3] = order.getStatus();
                 model.addRow(row);
                }
                 

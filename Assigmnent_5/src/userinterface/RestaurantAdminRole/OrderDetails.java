@@ -12,6 +12,7 @@ import Business.Restaurant.Dishes;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import userinterface.CustomerRole.CustomerAreaJPanel1;
@@ -36,12 +37,15 @@ public class OrderDetails extends javax.swing.JPanel {
         this.order = order;
         this.system = system;
         populateTable();
+        jTextField1.setText(order.getStatus());
         
         for(Customer cust:system.getCustomerDirectory().getCustList()){
             if(order.getCustomerName().equals(cust.getUserName())){
                 for(Order o : cust.getOrderList()){
-         
-                    jLabel3.setText(o.getComments());
+                    if(o.getOrder_id().equals(order.getOrder_id()))
+                    {
+                        jLabel3.setText(o.getComments());              
+                    }
                 }
             }
         }
@@ -79,6 +83,8 @@ public class OrderDetails extends javax.swing.JPanel {
         statusBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,19 +130,25 @@ public class OrderDetails extends javax.swing.JPanel {
         jLabel1.setText("Order ID:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
-        statusBtn.setText("Change Status to Ready to Deliver");
+        statusBtn.setText("Update");
         statusBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statusBtnActionPerformed(evt);
             }
         });
-        add(statusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, -1));
+        add(statusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, -1, -1));
 
-        jLabel2.setText("Comments:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
+        jLabel2.setText("Update Order Status:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, 30));
 
         jLabel3.setText("jLabel3");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 460, 20));
+
+        jLabel4.setText("Comments:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
+
+        jTextField1.setToolTipText("");
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 190, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
@@ -148,12 +160,23 @@ public class OrderDetails extends javax.swing.JPanel {
 
     private void statusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusBtnActionPerformed
         // TODO add your handling code here:
-        order.setStatus("Ready to Deliver");
-        for(Customer cust:system.getCustomerDirectory().getCustList()){
-            if(order.getCustomerName().equals(cust.getUserName())){
-                for(Order o : cust.getOrderList()){
-                    if(o.getOrder_id().equals(order.getOrder_id()))
-                    o.setStatus("Ready to Deliver");
+        
+        String orderStatus=jTextField1.getText();
+        if(orderStatus.equals(""))
+        {
+            JOptionPane.showMessageDialog(this,"Please enter order status!");
+        }
+        else
+        {            
+            order.setStatus(orderStatus);
+            for(Customer cust:system.getCustomerDirectory().getCustList()){
+                if(order.getCustomerName().equals(cust.getUserName())){
+                    for(Order o : cust.getOrderList()){
+                        if(o.getOrder_id().equals(order.getOrder_id()))
+                        {
+                        o.setStatus(orderStatus);
+                        }
+                    }
                 }
             }
         }
@@ -170,7 +193,9 @@ public class OrderDetails extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable orderTable;
     private javax.swing.JButton statusBtn;
     // End of variables declaration//GEN-END:variables

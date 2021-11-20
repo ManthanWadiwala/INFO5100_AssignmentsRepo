@@ -120,7 +120,7 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 110, -1));
 
-        viewOrderBtn.setText("View Order");
+        viewOrderBtn.setText("View Details");
         viewOrderBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewOrderBtnActionPerformed(evt);
