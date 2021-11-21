@@ -89,6 +89,8 @@ public class OrderDetails extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        orderTable.setBackground(new java.awt.Color(8, 34, 137));
+        orderTable.setForeground(new java.awt.Color(255, 255, 255));
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -119,6 +121,8 @@ public class OrderDetails extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 550, 150));
 
+        BackBtn.setBackground(new java.awt.Color(8, 34, 137));
+        BackBtn.setForeground(new java.awt.Color(255, 255, 255));
         BackBtn.setText("<< Back");
         BackBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +134,8 @@ public class OrderDetails extends javax.swing.JPanel {
         jLabel1.setText("Order ID:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
+        statusBtn.setBackground(new java.awt.Color(8, 34, 137));
+        statusBtn.setForeground(new java.awt.Color(255, 255, 255));
         statusBtn.setText("Update");
         statusBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,8 +146,6 @@ public class OrderDetails extends javax.swing.JPanel {
 
         jLabel2.setText("Update Order Status:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, 30));
-
-        jLabel3.setText("jLabel3");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 460, 20));
 
         jLabel4.setText("Comments:");

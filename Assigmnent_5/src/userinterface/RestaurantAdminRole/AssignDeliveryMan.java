@@ -5,10 +5,12 @@
  */
 package userinterface.RestaurantAdminRole;
 
+import Business.Customer.Customer;
 import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import Business.Order.Order;
 import static Business.Organization.Type.DeliveryMan;
+import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -45,9 +47,10 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(DeliveryMan deliveryMan1:system.getDeliveryManDirectory().getDeliveryManList()){
-               Object[] row = new Object[1];
+               Object[] row = new Object[2];
                
                 row[0] = deliveryMan1;
+                row[1] = deliveryMan1.getNumber();
                 
                 
                 model.addRow(row);
@@ -88,20 +91,20 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
 
         DeliveryManJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Name"
+                "Name", "Contact"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class
+                java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false
+                false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -136,14 +139,40 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
     private void AssignOrderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignOrderBtnActionPerformed
         int selectedRow = DeliveryManJTable.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this,"Please select a row from the table");
         }
         else
         {
             
             DeliveryMan deliveryMan  = (DeliveryMan)DeliveryManJTable.getValueAt(selectedRow, 0);   
             deliveryMan.getOrderList().add(order);
-            order.setStatus("Assign to Deliveryman");
+            order.setStatus("Assigned to DeliveryMan");
+            for(Customer cust:system.getCustomerDirectory().getCustList()){
+                if(order.getCustomerName().equals(cust.getUserName())){
+                    for(Order o : cust.getOrderList()){
+                        if(o.getOrder_id().equals(order.getOrder_id()))
+                        {
+                        o.setStatus("Assigned to DeliveryMan");
+                        o.setDeliverMan(deliveryMan.getName());
+                        //JOptionPane.showMessageDialog(this,"Assigned Order successfully!");
+
+                        }
+                    }
+                }
+            }
+            for(Restaurant r:system.getRestaurantDirectory().getRestaurantList()){
+                if(order.getRestaurantName().equals(r.getName())){
+                    for(Order o : r.getOrderList()){
+                        if(o.getOrder_id().equals(order.getOrder_id()))
+                        {
+                        o.setStatus("Assigned to DeliveryMan");
+                        o.setDeliverMan(deliveryMan.getName());
+                        JOptionPane.showMessageDialog(this,"Assigned Order successfully!");
+
+                        }
+                    }
+                }
+            }
             
             
         }

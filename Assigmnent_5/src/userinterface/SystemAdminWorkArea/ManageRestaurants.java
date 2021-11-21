@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author monal
+ * @author manthanwadiwala
  */
 public class ManageRestaurants extends javax.swing.JPanel {
 
@@ -98,7 +98,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 500, 120));
         add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 144, -1));
 
-        backJButton.setText("<< Back");
+        backJButton.setText("<<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
@@ -160,7 +160,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("Restaurant Information");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -178,12 +178,23 @@ public class ManageRestaurants extends javax.swing.JPanel {
         String name = nameJTextField.getText();
         String uname=uNameTextField.getText();
         String password=PasswordField.getText();
-        UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new AdminRole());
-        Restaurant restro= system.getRestaurantDirectory().createRestaurantInfo(uname);
-        populateNetworkTable();
-        nameJTextField.setText("");
-        uNameTextField.setText("");
-        PasswordField.setText("");
+
+        
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(uname))
+        {
+            UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new AdminRole());
+            Restaurant restro= system.getRestaurantDirectory().createRestaurantInfo(uname);
+            populateNetworkTable();
+            nameJTextField.setText("");
+            uNameTextField.setText("");
+            PasswordField.setText("");
+            JOptionPane.showMessageDialog(this,"User added successfully!");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,"Username already exists!");
+        }
+        
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed

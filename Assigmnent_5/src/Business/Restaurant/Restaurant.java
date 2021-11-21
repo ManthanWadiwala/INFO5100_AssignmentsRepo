@@ -38,7 +38,7 @@ public class Restaurant {
         order.setDeliveryAddress(deliveryAddress);
         order.setContactNumber(contact);
         order.setComments(comments);
-        order.setStatus("New Order");
+        order.setStatus("Order Placed");
         orderList.add(order);
         //id++;
     }

@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author monal
+ * @author manthanwadiwala
  */
 public class ManageCustomers extends javax.swing.JPanel {
 
@@ -80,6 +80,8 @@ public class ManageCustomers extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
+        networkJTable.setBackground(new java.awt.Color(8, 34, 137));
+        networkJTable.setForeground(new java.awt.Color(255, 255, 255));
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -120,13 +122,14 @@ public class ManageCustomers extends javax.swing.JPanel {
         submitJButton.setBackground(new java.awt.Color(8, 34, 137));
         submitJButton.setForeground(new java.awt.Color(255, 255, 255));
         submitJButton.setText("Submit");
+        submitJButton.setActionCommand("Add");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Name");
+        jLabel3.setText("Customer Name : ");
 
         uNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +137,7 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Password");
+        jLabel4.setText("Password : ");
 
         PasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +172,7 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setText("Username");
+        jLabel5.setText("Username : ");
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("Customer Information");
@@ -194,7 +197,7 @@ public class ManageCustomers extends javax.swing.JPanel {
                             .addComponent(ConfirmBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
+                        .addGap(92, 92, 92)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5)
@@ -205,7 +208,7 @@ public class ManageCustomers extends javax.swing.JPanel {
                             .addComponent(uNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,9 +300,6 @@ public class ManageCustomers extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = networkJTable.getSelectedRow();
         if(selectedRow>=0){
-            int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??","Warning",selectionButton);
-            if(selectionResult == JOptionPane.YES_OPTION){
                 String username= (String) networkJTable.getValueAt(selectedRow, 1);
                 String pwd= (String) networkJTable.getValueAt(selectedRow, 2);
                 UserAccount user=system.getUserAccountDirectory().authenticateUser(username, pwd);
@@ -308,9 +308,9 @@ public class ManageCustomers extends javax.swing.JPanel {
                 system.getUserAccountDirectory().deleteUserAccount(user);
                 system.getCustomerDirectory().deleteCustomer(user.getUsername());
                 populateNetworkTable();
-            }
+            
         }else{
-            JOptionPane.showMessageDialog(null, "First select a Customer to delete!");
+            JOptionPane.showMessageDialog(this, "Please select a row to delete");
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
 

@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Order.Order;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -17,7 +18,7 @@ import javax.swing.JPanel;
  */
 
 
-public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
+public class DeliveryManInfoJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     Order order;
@@ -26,7 +27,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public ProcessWorkRequestJPanel(JPanel userProcessContainer, Order order,EcoSystem system) {
+    public DeliveryManInfoJPanel(JPanel userProcessContainer, Order order,EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.order = order;
@@ -120,14 +121,26 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
-        order.setStatus(statusJTextField.getText());
-        for(Customer cust:system.getCustomerDirectory().getCustList()){
-            if(order.getCustomerName().equals(cust.getUserName())){
-                for(Order o : cust.getOrderList()){
-                    o.setStatus(statusJTextField.getText());
+        
+        if(submitJButton.getText().equals(""))       
+        {
+            JOptionPane.showMessageDialog(this,"Please enter status update!");
+        }
+        else
+        {
+            order.setStatus(statusJTextField.getText());
+            for(Customer cust:system.getCustomerDirectory().getCustList()){
+                if(order.getCustomerName().equals(cust.getUserName())){
+                    for(Order o : cust.getOrderList()){
+                        if(o.getOrder_id().equals(order.getOrder_id()))
+                            {
+                        o.setStatus(statusJTextField.getText());
+                            }
+                    }
                 }
             }
         }
+        
         
     }//GEN-LAST:event_submitJButtonActionPerformed
 

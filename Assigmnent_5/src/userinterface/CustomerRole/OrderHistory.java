@@ -83,20 +83,20 @@ public class OrderHistory extends javax.swing.JPanel {
         pastTbl.setForeground(new java.awt.Color(255, 255, 255));
         pastTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Restaurant Name", "Amount", "Status"
+                "Order ID", "Restaurant Name", "Amount", "Status", "Delivery Man"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, true, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -163,6 +163,7 @@ public class OrderHistory extends javax.swing.JPanel {
                 row[1] = order.getRestaurantName();            
                 row[2] = order.getCost();
                 row[3] = order.getStatus();
+                //row[4] = order.getDeliverMan();
                 model.addRow(row);
                }
                 

@@ -278,9 +278,10 @@ public class MenuPanel1 extends javax.swing.JPanel {
                 int orderId= (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);
                 cust.addOrder(orderId, restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address,contact,comments);
                 restro.addOrder(orderId, restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address,contact,comments);
-                JOptionPane.showMessageDialog(this,"Order Placed Successfully!.");
+                
             }
         }
+            JOptionPane.showMessageDialog(this,"Order Placed Successfully!.");
         }
         
         

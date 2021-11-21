@@ -2,9 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.CustomerRole;
+package userinterface.DeliveryManRole;
 
+import userinterface.CustomerRole.*;
 import Business.Customer.Customer;
+import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
@@ -16,7 +18,7 @@ import javax.swing.JPanel;
  *
  * @author monal
  */
-public class PersonalInfo extends javax.swing.JPanel {
+public class DeliveryManPersonalInfo extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     EcoSystem system;
@@ -24,7 +26,7 @@ public class PersonalInfo extends javax.swing.JPanel {
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public PersonalInfo(JPanel userProcessContainer, UserAccount account,EcoSystem system) {
+    public DeliveryManPersonalInfo(JPanel userProcessContainer, UserAccount account,EcoSystem system) {
         initComponents();
         
         this.account=account;
@@ -38,11 +40,10 @@ public class PersonalInfo extends javax.swing.JPanel {
     }
 
     public void populateInfo(){
-        for (Customer cust:system.getCustomerDirectory().getCustList()) {
+        for (DeliveryMan d:system.getDeliveryManDirectory().getDeliveryManList()) {
            
-            if (cust.getUserName().equals(account.getUsername())) {
-                jTextField1.setText(cust.getAddress());
-                jTextField2.setText(cust.getNumber());
+            if (d.getUserName().equals(account.getUsername())) {
+                     jTextField2.setText(d.getNumber());
             }
             }
     }
@@ -61,22 +62,20 @@ public class PersonalInfo extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         valueLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("Customer:");
+        enterpriseLabel.setText("Delivery Man:");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 127, 30));
 
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 310, 26));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 310, 26));
 
         valueLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         valueLabel2.setText("Your Information");
@@ -88,15 +87,11 @@ public class PersonalInfo extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 170, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 170, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, -1));
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 170, -1));
 
         jLabel1.setText("Contact Number: *");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, 30));
-
-        jLabel2.setText("Delivery Address: * ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, 30));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, 30));
 
         backBtn.setText("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -110,20 +105,20 @@ public class PersonalInfo extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
-        String address=jTextField1.getText();
+       
         String contact=jTextField2.getText();
         
-        if(address.equals("")|| contact.equals(""))
+        if(contact.equals(""))
         {
             JOptionPane.showMessageDialog(this,"Please fill the mandatory fields!");
         }
         else
         {
-            for (Customer cust:system.getCustomerDirectory().getCustList()) {
 
-                if (cust.getUserName().equals(account.getUsername())) {
-                    cust.setAddress(address);
-                    cust.setNumber(contact);
+            for (DeliveryMan d: system.getDeliveryManDirectory().getDeliveryManList()) {
+
+                if (d.getUserName().equals(account.getUsername())) {
+                    d.setNumber(contact);
                     JOptionPane.showMessageDialog(this,"Personal Information updated successfully!");
                 }
             }
@@ -142,8 +137,6 @@ public class PersonalInfo extends javax.swing.JPanel {
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel valueLabel;
     private javax.swing.JLabel valueLabel2;

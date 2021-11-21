@@ -26,7 +26,7 @@ public class DeliveryMan {
         order.setOrder(Order);
         order.setCost(cost);
         order.setDeliveryAddress(deliveryAddress);
-        order.setStatus("New Order");
+        order.setStatus("Order Placed");
         orderList.add(order);
         
     }

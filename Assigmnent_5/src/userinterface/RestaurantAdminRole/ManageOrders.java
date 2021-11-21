@@ -54,6 +54,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 row[3] = menu.getContactNumber();
                 row[4] = menu.getCost();
                 row[5] = menu.getStatus();
+                //row[6] = menu.getDeliverMan();
                 model.addRow(row);
                }
                 
@@ -84,20 +85,20 @@ public class ManageOrders extends javax.swing.JPanel {
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Customer Name", "Delivery Address", "Contact", "Amount", "Status"
+                "Order ID", "Customer Name", "Delivery Address", "Contact", "Amount", "Status", "Delivery Man"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false, false
+                false, false, false, true, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
