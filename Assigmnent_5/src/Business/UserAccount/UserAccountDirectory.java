@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author monal
+ * @author manthanwadiwala
  */
 public class UserAccountDirectory {
    //private RestaurantDirectory resDir;
@@ -58,12 +58,10 @@ public class UserAccountDirectory {
     }
     
     public boolean checkIfUsernameIsUnique(String username){
-        boolean flag=false;
         for (UserAccount ua : userAccountList){
             if (ua.getUsername().equals(username))
-            {flag=false;}
-            else{flag=true;}
+                return false;              
         }
-        return flag;
+        return true;
     }
 }

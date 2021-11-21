@@ -11,7 +11,7 @@ import userinterface.SystemAdminWorkArea.ManageRestaurants;
 
 /**
  *
- * @author  monal
+ * @author manthanwadiwala
  */
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     

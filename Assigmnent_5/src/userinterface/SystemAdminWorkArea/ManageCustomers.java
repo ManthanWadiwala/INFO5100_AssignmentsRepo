@@ -110,6 +110,12 @@ public class ManageCustomers extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(networkJTable);
 
+        nameJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameJTextFieldActionPerformed(evt);
+            }
+        });
+
         backJButton.setBackground(new java.awt.Color(8, 34, 137));
         backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
@@ -281,6 +287,8 @@ public class ManageCustomers extends javax.swing.JPanel {
         int selectRow = networkJTable.getSelectedRow();
 
         if(selectRow>=0){
+            nameJTextField.setEditable(false);
+            uNameTextField.setEditable(false);
             String username= (String) networkJTable.getValueAt(selectRow, 1);
             String pwd= (String) networkJTable.getValueAt(selectRow, 2);
             user=system.getUserAccountDirectory().authenticateUser(username, pwd);
@@ -326,12 +334,18 @@ public class ManageCustomers extends javax.swing.JPanel {
         nameJTextField.setText("");
         uNameTextField.setText("");
         PasswordField.setText("");
+        nameJTextField.setEditable(true);
+        uNameTextField.setEditable(true);
 
     }//GEN-LAST:event_ConfirmBtnActionPerformed
 
     private void uNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uNameTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_uNameTextFieldActionPerformed
+
+    private void nameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameJTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

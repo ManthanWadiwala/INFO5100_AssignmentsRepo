@@ -182,17 +182,31 @@ public class ManageMenu extends javax.swing.JPanel {
         String name=dishNameTxt.getText();
         String desc=descTxt.getText();
         String amount=amtTxt.getText();
-       
-        for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
-           if(restro.getAdminUName().equals(account.getUsername())){
-                menu=system.getRestaurantDirectory().AddMenuDishes(restro,name, desc, amount);
-                JOptionPane.showMessageDialog(null, "Added Menu Item successfully.");
-            }   
+        
+        if(amount.equals("") || name.equals("") || desc.equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Please fill all fields.");
         }
-        populateTable();
-        dishNameTxt.setText("");
-        descTxt.setText("");
-        amtTxt.setText("");
+        else
+        {    
+            try{
+                Double.parseDouble(amount);
+            for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
+               if(restro.getAdminUName().equals(account.getUsername())){
+                    menu=system.getRestaurantDirectory().AddMenuDishes(restro,name, desc, amount);
+                    JOptionPane.showMessageDialog(this, "Added Menu Item successfully.");
+                }   
+            }
+            populateTable();
+            dishNameTxt.setText("");
+            descTxt.setText("");
+            amtTxt.setText("");
+            }
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(this, "Invalid Item Amount format.");
+            }
+        }
         
     }//GEN-LAST:event_addDishBtnActionPerformed
 

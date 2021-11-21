@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author monal
+ * @author manthanwadiwala
  */
 public class DeliveryManPersonalInfo extends javax.swing.JPanel {
 
@@ -112,20 +112,30 @@ public class DeliveryManPersonalInfo extends javax.swing.JPanel {
        
         String contact=jTextField2.getText();
         
+        String errorMessage="";
+        
         if(contact.equals(""))
         {
             JOptionPane.showMessageDialog(this,"Please fill the mandatory fields!");
         }
         else
         {
-
-            for (DeliveryMan d: system.getDeliveryManDirectory().getDeliveryManList()) {
-
-                if (d.getUserName().equals(account.getUsername())) {
-                    d.setNumber(contact);
-                    JOptionPane.showMessageDialog(this,"Personal Information updated successfully!");
+              
+            try{
+                Integer.parseInt(contact);
+                for (DeliveryMan d: system.getDeliveryManDirectory().getDeliveryManList()) {
+                    if (d.getUserName().equals(account.getUsername())) {
+                        d.setNumber(contact);
+                        JOptionPane.showMessageDialog(this,"Personal Information updated successfully!");
+                    }
                 }
             }
+            catch(Exception e)
+            {
+                errorMessage = errorMessage.concat("Invalid phone number format. \n");
+                JOptionPane.showMessageDialog(this, errorMessage);                
+            }
+            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

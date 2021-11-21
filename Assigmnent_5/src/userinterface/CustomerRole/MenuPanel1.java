@@ -144,6 +144,7 @@ public class MenuPanel1 extends javax.swing.JPanel {
 
         cartTable.setAutoCreateRowSorter(true);
         cartTable.setBackground(new java.awt.Color(8, 34, 137));
+        cartTable.setForeground(new java.awt.Color(255, 255, 255));
         cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

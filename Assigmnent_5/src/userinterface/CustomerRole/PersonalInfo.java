@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author monal
+ * @author manthanwadiwala
  */
 public class PersonalInfo extends javax.swing.JPanel {
 
@@ -123,6 +123,8 @@ public class PersonalInfo extends javax.swing.JPanel {
         }
         else
         {
+            try{
+            Integer.parseInt(contact);
             for (Customer cust:system.getCustomerDirectory().getCustList()) {
 
                 if (cust.getUserName().equals(account.getUsername())) {
@@ -130,6 +132,11 @@ public class PersonalInfo extends javax.swing.JPanel {
                     cust.setNumber(contact);
                     JOptionPane.showMessageDialog(this,"Personal Information updated successfully!");
                 }
+            }
+            }
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(this,"Invalid Contact number format");
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

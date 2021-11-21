@@ -16,7 +16,7 @@ import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
- * @author monal
+ * @author manthanwadiwala
  */
 public class ManageInfo extends javax.swing.JPanel {
 
@@ -136,14 +136,28 @@ public class ManageInfo extends javax.swing.JPanel {
         String name=nameTxt.getText();
         String address=addressTxt.getText();
         String number=numTxt.getText();
-       
-        for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
-           if(restro.getAdminUName().equals(account.getUsername())){
-                system.getRestaurantDirectory().updateRestaurantInfo(restro,name, number, address);
-                JOptionPane.showMessageDialog(this,"Restaurant Details updated successfully.");
+        
+        if(name.equals("")||address.equals("")||number.equals(""))
+        {
+            JOptionPane.showMessageDialog(this,"Please fill all mandatory fields.");
+        }
+        else
+        {
+            try{
+                Integer.parseInt(number);
+                for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
+                   if(restro.getAdminUName().equals(account.getUsername())){
+                        system.getRestaurantDirectory().updateRestaurantInfo(restro,name, number, address);
+                        JOptionPane.showMessageDialog(this,"Restaurant Details updated successfully.");
+                    }
+
+
+                }
             }
-          
-            
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(this,"Invalid Contact Number format.");
+            }
         }
         
         

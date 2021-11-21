@@ -123,8 +123,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 585, -1, -1));
 
-        jLabel3.setText("Name");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, -1, -1));
+        jLabel3.setText("Manager Name");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
         add(uNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 144, -1));
 
         jLabel4.setText("Password");
@@ -218,6 +218,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
         int selectRow = networkJTable.getSelectedRow();
 
         if(selectRow>=0){
+            nameJTextField.setEditable(false);
+            uNameTextField.setEditable(false);
             String username= (String) networkJTable.getValueAt(selectRow, 1);
                 String pwd= (String) networkJTable.getValueAt(selectRow, 2);
                 user=system.getUserAccountDirectory().authenticateUser(username, pwd);
@@ -267,6 +269,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
         nameJTextField.setText("");
         uNameTextField.setText("");
         PasswordField.setText("");
+        nameJTextField.setEditable(true);
+        uNameTextField.setEditable(true);
         
     }//GEN-LAST:event_ConfirmBtnActionPerformed
 

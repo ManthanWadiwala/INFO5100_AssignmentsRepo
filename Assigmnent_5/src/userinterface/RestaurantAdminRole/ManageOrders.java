@@ -18,7 +18,7 @@ import userinterface.CustomerRole.MenuPanel1;
 
 /**
  *
- * @author monal
+ * @author manthanwadiwala
  */
 public class ManageOrders extends javax.swing.JPanel {
 
@@ -87,20 +87,20 @@ public class ManageOrders extends javax.swing.JPanel {
         orderTable.setForeground(new java.awt.Color(255, 255, 255));
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Customer Name", "Delivery Address", "Contact", "Amount", "Status", "Delivery Man"
+                "Order ID", "Customer Name", "Delivery Address", "Contact", "Amount", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false, false, true
+                false, false, false, true, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -113,7 +113,7 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(orderTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 580, 120));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 960, 120));
 
         backBtn.setBackground(new java.awt.Color(8, 34, 137));
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -133,7 +133,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 viewOrderBtnActionPerformed(evt);
             }
         });
-        add(viewOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 150, -1));
+        add(viewOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 150, -1));
 
         AssignBtn1.setBackground(new java.awt.Color(8, 34, 137));
         AssignBtn1.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,7 +143,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 AssignBtn1ActionPerformed(evt);
             }
         });
-        add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 210, -1));
+        add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 210, -1));
 
         jButton1.setBackground(new java.awt.Color(8, 34, 137));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,11 +153,11 @@ public class ManageOrders extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 120, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 40, 120, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Manage Orders");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 150, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 150, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

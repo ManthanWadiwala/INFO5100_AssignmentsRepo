@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author monal
+ * @author manthanwadiwala
  */
 
 
@@ -135,6 +135,7 @@ public class DeliveryManInfoJPanel extends javax.swing.JPanel {
                         if(o.getOrder_id().equals(order.getOrder_id()))
                             {
                         o.setStatus(statusJTextField.getText());
+                        JOptionPane.showMessageDialog(this,"Order Status updated successfully!");
                             }
                     }
                 }
