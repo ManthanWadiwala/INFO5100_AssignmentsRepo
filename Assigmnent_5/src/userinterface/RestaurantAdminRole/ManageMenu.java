@@ -72,6 +72,8 @@ public class ManageMenu extends javax.swing.JPanel {
         });
         add(amtTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 160, -1));
 
+        MenuTable.setBackground(new java.awt.Color(8, 34, 137));
+        MenuTable.setForeground(new java.awt.Color(255, 255, 255));
         MenuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -127,6 +129,8 @@ public class ManageMenu extends javax.swing.JPanel {
         });
         add(descTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 160, -1));
 
+        deleteBtn.setBackground(new java.awt.Color(8, 34, 137));
+        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         deleteBtn.setText("Delete");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +139,8 @@ public class ManageMenu extends javax.swing.JPanel {
         });
         add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 100, 30));
 
+        backBtn.setBackground(new java.awt.Color(8, 34, 137));
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +149,8 @@ public class ManageMenu extends javax.swing.JPanel {
         });
         add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
+        addDishBtn.setBackground(new java.awt.Color(8, 34, 137));
+        addDishBtn.setForeground(new java.awt.Color(255, 255, 255));
         addDishBtn.setText("Add");
         addDishBtn.setPreferredSize(new java.awt.Dimension(84, 29));
         addDishBtn.addActionListener(new java.awt.event.ActionListener() {

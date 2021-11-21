@@ -63,6 +63,8 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        updateBtn.setBackground(new java.awt.Color(8, 34, 137));
+        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
         updateBtn.setText("Update");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +73,8 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         });
         add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 120, -1));
 
+        deleteBtn.setBackground(new java.awt.Color(8, 34, 137));
+        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         deleteBtn.setText("Delete");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +83,8 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         });
         add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 120, -1));
 
+        networkJTable.setBackground(new java.awt.Color(8, 34, 137));
+        networkJTable.setForeground(new java.awt.Color(255, 255, 255));
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -109,6 +115,8 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 470, 91));
 
+        ConfirmBtn.setBackground(new java.awt.Color(8, 34, 137));
+        ConfirmBtn.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmBtn.setText("Save");
         ConfirmBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +129,8 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, 20));
         add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 144, -1));
 
+        backJButton.setBackground(new java.awt.Color(8, 34, 137));
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +139,8 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 100, -1));
 
+        submitJButton.setBackground(new java.awt.Color(8, 34, 137));
+        submitJButton.setForeground(new java.awt.Color(255, 255, 255));
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

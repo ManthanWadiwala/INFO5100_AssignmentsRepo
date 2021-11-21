@@ -86,6 +86,8 @@ public class AssignedOrdersJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        workRequestJTable.setBackground(new java.awt.Color(8, 34, 137));
+        workRequestJTable.setForeground(new java.awt.Color(255, 255, 255));
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

@@ -119,6 +119,8 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 404, 91));
 
+        AssignOrderBtn.setBackground(new java.awt.Color(8, 34, 137));
+        AssignOrderBtn.setForeground(new java.awt.Color(255, 255, 255));
         AssignOrderBtn.setText("Assign Order");
         AssignOrderBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +129,9 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
         });
         add(AssignOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 210, -1));
 
-        BackBtn.setText("<< Back");
+        BackBtn.setBackground(new java.awt.Color(8, 34, 137));
+        BackBtn.setForeground(new java.awt.Color(255, 255, 255));
+        BackBtn.setText("<<<Back");
         BackBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackBtnActionPerformed(evt);

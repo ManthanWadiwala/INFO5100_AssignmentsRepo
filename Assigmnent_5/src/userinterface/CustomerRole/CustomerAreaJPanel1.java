@@ -141,6 +141,8 @@ public class CustomerAreaJPanel1 extends javax.swing.JPanel {
         valueLabel1.setText("Select a Restaurant");
         add(valueLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 210, 26));
 
+        backBtn.setBackground(new java.awt.Color(8, 34, 137));
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

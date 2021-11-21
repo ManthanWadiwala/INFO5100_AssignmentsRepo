@@ -81,6 +81,8 @@ public class DeliveryManPersonalInfo extends javax.swing.JPanel {
         valueLabel2.setText("Your Information");
         add(valueLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 158, 26));
 
+        jButton1.setBackground(new java.awt.Color(8, 34, 137));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Update Info");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +95,8 @@ public class DeliveryManPersonalInfo extends javax.swing.JPanel {
         jLabel1.setText("Contact Number: *");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, 30));
 
+        backBtn.setBackground(new java.awt.Color(8, 34, 137));
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -115,6 +115,8 @@ public class OrderHistory extends javax.swing.JPanel {
         valueLabel3.setText("Order History");
         add(valueLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 158, 26));
 
+        backBtn.setBackground(new java.awt.Color(8, 34, 137));
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -83,6 +83,8 @@ public class ManageOrders extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        orderTable.setBackground(new java.awt.Color(8, 34, 137));
+        orderTable.setForeground(new java.awt.Color(255, 255, 255));
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -113,6 +115,8 @@ public class ManageOrders extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 580, 120));
 
+        backBtn.setBackground(new java.awt.Color(8, 34, 137));
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,22 +125,28 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 110, -1));
 
+        viewOrderBtn.setBackground(new java.awt.Color(8, 34, 137));
+        viewOrderBtn.setForeground(new java.awt.Color(255, 255, 255));
         viewOrderBtn.setText("View Details");
         viewOrderBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewOrderBtnActionPerformed(evt);
             }
         });
-        add(viewOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 150, -1));
+        add(viewOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 150, -1));
 
-        AssignBtn1.setText("Assign to Delivery Man ");
+        AssignBtn1.setBackground(new java.awt.Color(8, 34, 137));
+        AssignBtn1.setForeground(new java.awt.Color(255, 255, 255));
+        AssignBtn1.setText("Assign Delivery Man");
         AssignBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AssignBtn1ActionPerformed(evt);
             }
         });
-        add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 210, -1));
+        add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 210, -1));
 
+        jButton1.setBackground(new java.awt.Color(8, 34, 137));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

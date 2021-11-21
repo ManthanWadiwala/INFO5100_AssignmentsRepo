@@ -142,6 +142,8 @@ public class MenuPanel1 extends javax.swing.JPanel {
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 230, 50));
 
+        cartTable.setAutoCreateRowSorter(true);
+        cartTable.setBackground(new java.awt.Color(8, 34, 137));
         cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -162,6 +164,8 @@ public class MenuPanel1 extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, 100));
 
+        menuTable.setBackground(new java.awt.Color(8, 34, 137));
+        menuTable.setForeground(new java.awt.Color(255, 255, 255));
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

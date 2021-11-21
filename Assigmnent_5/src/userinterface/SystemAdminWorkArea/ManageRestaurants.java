@@ -67,6 +67,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        networkJTable.setBackground(new java.awt.Color(8, 34, 137));
+        networkJTable.setForeground(new java.awt.Color(255, 255, 255));
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -98,6 +100,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 500, 120));
         add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 144, -1));
 
+        backJButton.setBackground(new java.awt.Color(8, 34, 137));
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +110,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
+        submitJButton.setBackground(new java.awt.Color(8, 34, 137));
+        submitJButton.setForeground(new java.awt.Color(255, 255, 255));
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +137,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
         });
         add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 144, -1));
 
+        updateBtn.setBackground(new java.awt.Color(8, 34, 137));
+        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
         updateBtn.setText("Update");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +147,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
         });
         add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 120, -1));
 
+        deleteBtn.setBackground(new java.awt.Color(8, 34, 137));
+        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         deleteBtn.setText("Delete");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +157,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
         });
         add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 130, -1));
 
+        ConfirmBtn.setBackground(new java.awt.Color(8, 34, 137));
+        ConfirmBtn.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmBtn.setText("Save");
         ConfirmBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
