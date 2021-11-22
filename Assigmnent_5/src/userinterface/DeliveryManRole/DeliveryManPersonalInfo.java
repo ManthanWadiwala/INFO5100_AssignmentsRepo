@@ -112,7 +112,6 @@ public class DeliveryManPersonalInfo extends javax.swing.JPanel {
        
         String contact=jTextField2.getText();
         
-        String errorMessage="";
         
         if(contact.equals(""))
         {
@@ -121,8 +120,10 @@ public class DeliveryManPersonalInfo extends javax.swing.JPanel {
         else
         {
               
-            try{
-                Integer.parseInt(contact);
+            String regex = "\\d{10}"; //regex for 10 digits
+          
+            if(contact.matches(regex))
+            {
                 for (DeliveryMan d: system.getDeliveryManDirectory().getDeliveryManList()) {
                     if (d.getUserName().equals(account.getUsername())) {
                         d.setNumber(contact);
@@ -130,10 +131,9 @@ public class DeliveryManPersonalInfo extends javax.swing.JPanel {
                     }
                 }
             }
-            catch(Exception e)
+            else
             {
-                errorMessage = errorMessage.concat("Invalid phone number format. \n");
-                JOptionPane.showMessageDialog(this, errorMessage);                
+                JOptionPane.showMessageDialog(this, "Invalid phone number format.");                
             }
             
         }

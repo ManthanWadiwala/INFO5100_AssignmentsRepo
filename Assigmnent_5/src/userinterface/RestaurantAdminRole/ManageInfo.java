@@ -143,8 +143,10 @@ public class ManageInfo extends javax.swing.JPanel {
         }
         else
         {
-            try{
-                Integer.parseInt(number);
+            String regex = "\\d{10}"; //regex for 10 digits
+          
+            if(number.matches(regex))
+            {
                 for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
                    if(restro.getAdminUName().equals(account.getUsername())){
                         system.getRestaurantDirectory().updateRestaurantInfo(restro,name, number, address);
@@ -154,7 +156,7 @@ public class ManageInfo extends javax.swing.JPanel {
 
                 }
             }
-            catch(Exception e)
+            else
             {
                 JOptionPane.showMessageDialog(this,"Invalid Contact Number format.");
             }

@@ -92,6 +92,12 @@ public class PersonalInfo extends javax.swing.JPanel {
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, -1, -1));
         add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 170, -1));
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 170, -1));
 
         jLabel1.setText("Contact Number: *");
@@ -123,20 +129,22 @@ public class PersonalInfo extends javax.swing.JPanel {
         }
         else
         {
-            try{
-            Integer.parseInt(contact);
-            for (Customer cust:system.getCustomerDirectory().getCustList()) {
+            String regex = "\\d{10}"; //regex for 10 digits
+          
+            if(contact.matches(regex))
+            {
+                for (Customer cust:system.getCustomerDirectory().getCustList()) {
 
-                if (cust.getUserName().equals(account.getUsername())) {
-                    cust.setAddress(address);
-                    cust.setNumber(contact);
-                    JOptionPane.showMessageDialog(this,"Personal Information updated successfully!");
+                    if (cust.getUserName().equals(account.getUsername())) {
+                        cust.setAddress(address);
+                        cust.setNumber(contact);
+                        JOptionPane.showMessageDialog(this,"Personal Information updated successfully!");
+                    }
                 }
             }
-            }
-            catch(Exception e)
+            else
             {
-                JOptionPane.showMessageDialog(this,"Invalid Contact number format");
+                JOptionPane.showMessageDialog(this,"Invalid Contact Number format.");
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -147,6 +155,10 @@ public class PersonalInfo extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;

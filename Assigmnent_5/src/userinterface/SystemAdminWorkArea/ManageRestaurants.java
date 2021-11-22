@@ -240,9 +240,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = networkJTable.getSelectedRow();
         if(selectedRow>=0){
-            int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??","Warning",selectionButton);
-            if(selectionResult == JOptionPane.YES_OPTION){
+        
                 String username= (String) networkJTable.getValueAt(selectedRow, 1);
                 String pwd= (String) networkJTable.getValueAt(selectedRow, 2);
                 UserAccount user=system.getUserAccountDirectory().authenticateUser(username, pwd);
@@ -251,7 +249,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
                 system.getUserAccountDirectory().deleteUserAccount(user);
                 system.getRestaurantDirectory().deleteRestaurant(user.getUsername());
                 populateNetworkTable();
-           }
+           
         }else{
             JOptionPane.showMessageDialog(null, "Please select a Row to Delete");
         }
